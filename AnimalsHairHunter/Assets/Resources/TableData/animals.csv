@@ -1,0 +1,10 @@
+id	Name	SpritePath	HP	Stage
+1	양	Image/Animal/Animals_1	5000	1
+2	늑대	Image/Animal/Animals_2	2500	1
+3	알파카	Image/Animal/Animals_3	3000	1  
+4	검은 늑대	Image/Animal/Animals_4	100000	2
+5	하이에나	Image/Animal/Animals_3	100000	2
+6	라쿤	Image/Animal/Animals_5	100000	2
+7	고릴라	0	100000000	3
+8	개미핥기	0	100000000	3
+9	재규어	0	100000000	3
