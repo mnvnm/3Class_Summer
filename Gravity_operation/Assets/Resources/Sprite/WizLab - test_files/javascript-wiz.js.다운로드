@@ -1,0 +1,115 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="google" value="notranslate"/><link rel="shortcut icon" href="/favicon.ico"/><meta id="viewport" name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta property="og:type" content="website"/><meta property="og:title" content="위즈랩"/><meta property="og:description" content="누구나 쉽게 게임을 만들며 코딩을 체험할 수 있는 소프트웨어 교육 서비스입니다."/><meta property="og:image" content="https://d1tz4sj00zmgsb.cloudfront.net/wizlab-thumbnail.png"/><meta property="og:url" content="https://wizlab.net"/><meta name="description" content="누구나 쉽게 게임을 만들며 코딩을 체험할 수 있는 소프트웨어 교육 서비스입니다."/><link rel="canonical" href="https://wizlab.net"/><meta name="naver-site-verification" content="ed09254b1a35da3e870d5fb8682e3dfbd49b6108"/><meta name="google-site-verification" content="GGb-QqFL5JVpMmbKFKMAF17B0xEkKI13sXF-PeiQ0O4"/><script async src="https://www.googletagmanager.com/gtag/js?id=AW-623322625"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","AW-623322625")</script><script>gtag("event","conversion",{send_to:"AW-623322625/3VtBCPW3v9wBEIHMnKkC"})</script><script>!function(e,t,a,n,g){e[n]=e[n]||[],e[n].push({"gtm.start":(new Date).getTime(),event:"gtm.js"});var m=t.getElementsByTagName(a)[0],r=t.createElement(a);r.async=!0,r.src="https://www.googletagmanager.com/gtm.js?id=GTM-TS3NKTR",m.parentNode.insertBefore(r,m)}(window,document,"script","dataLayer")</script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-168395916-1"></script><script src="//cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/url-search-params/1.1.0/url-search-params.js"></script><script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Array.prototype.find,Array.prototype.findIndex"></script><script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script><script>Kakao.init("15c9150c4f874b13050919da0c6d447a")</script><script async defer="defer" src="https://connect.facebook.net/en_US/sdk.js"></script><script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"></script><script>window.fbAsyncInit=function(){FB.init({appId:"2588620097906797",autoLogAppEvents:!0,xfbml:!0,version:"v8.0"})}</script><script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script><script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script><script>function setViewPortSize() {
+        const viewport = document.getElementById("viewport");
+        const width = Math.max(
+          document.documentElement.clientWidth,
+          window.innerWidth || 0
+        );
+
+        if (width < 1120) {
+          if (width >= 768 && width < 1120) {
+            viewport.setAttribute("content", "width=1120");
+          } else if (width !== 1120) {
+            viewport.setAttribute("content", "width=device-width");
+            // } else {
+            // viewport.setAttribute("content", "width=1250, initial-scale=1.0");
+          }
+        } else if (width === 1120) {
+          // document.body.scrollTo(0, 0);
+        }
+      }
+      setViewPortSize();
+      window.onload = function() {
+        setViewPortSize();
+        // alert("onload");
+      };
+      window.onresize = function() {
+        setViewPortSize();
+        // alert("onresize" + document.documentElement.clientWidth);
+      };
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-168395916-1");
+
+      if (!Array.prototype.includes) {
+        Object.defineProperty(Array.prototype, "includes", {
+          enumerable: false,
+          value: function(obj) {
+            var newArr = this.filter(function(el) {
+              return el == obj;
+            });
+            return newArr.length > 0;
+          }
+        });
+      }
+      if (!Array.prototype.find) {
+        Object.defineProperty(Array.prototype, "find", {
+          value: function(predicate) {
+            // 1. Let O be ? ToObject(this value).
+            if (this == null) {
+              throw new TypeError('"this" is null or not defined');
+            }
+            var o = Object(this);
+            // 2. Let len be ? ToLength(? Get(O, "length")).
+            var len = o.length >>> 0;
+            // 3. If IsCallable(predicate) is false, throw a TypeError exception.
+            if (typeof predicate !== "function") {
+              throw new TypeError("predicate must be a function");
+            }
+            // 4. If thisArg was supplied, let T be thisArg; else let T be undefined.
+            var thisArg = arguments[1];
+            // 5. Let k be 0.
+            var k = 0;
+            // 6. Repeat, while k < len
+            while (k < len) {
+              // a. Let Pk be ! ToString(k).
+              // b. Let kValue be ? Get(O, Pk).
+              // c. Let testResult be ToBoolean(? Call(predicate, T, « kValue, k, O »)).
+              // d. If testResult is true, return kValue.
+              var kValue = o[k];
+              if (predicate.call(thisArg, kValue, k, o)) {
+                return kValue;
+              }
+              // e. Increase k by 1.
+              k++;
+            }
+
+            // 7. Return undefined.
+            return undefined;
+          }
+        });
+      }</script><script type="text/javascript">var _TRK_LID="105006",_L_TD="ssl.logger.co.kr",_TRK_CDMN=".wizlab.net"</script><script type="text/javascript">var _CDN_DOMAIN="https:"==location.protocol?"https://fs.bizspring.net":"http://fs.bizspring.net";!function(t,e){var s=t.getElementsByTagName(e)[0],n=t.createElement(e);n.async=!0,n.src="//fs.bizspring.net/fs4/bstrk.1.js",s.parentNode.insertBefore(n,s)}(document,"script")</script><noscript><img alt="Logger Script" width="1" height="1" src="http://ssl.logger.co.kr/tracker.1.tsp?u=105006&amp;js=N"/></noscript><script>function setBizSpring() {
+        let bizSpring = document.createElement("script");
+        bizSpring._TRK_PI = "RGR";
+        bizSpring._TRK_SX = "";
+        bizSpring._TRK_AG = "";
+      }</script><link rel="manifest" href="/manifest.json"/><title>위즈랩</title><link href="/static/css/48.9ed3e011.chunk.css" rel="stylesheet"><link href="/static/css/main.d2361cff.chunk.css" rel="stylesheet"></head><script src="/rollbar.js"></script><script type="text/javascript">let lang = localStorage.getItem("wizLang");
+    if (!lang) lang = navigator.language;
+    function appendLink(href) {
+      let elHead, elLink;
+      elLink = document.createElement("link");
+      elLink.rel = "stylesheet";
+      elLink.type = "text/css";
+      elLink.href = href;
+      elHead = document.getElementsByTagName("head")[0];
+      elHead.appendChild(elLink);
+    }
+    if (lang !== "zh") {
+      appendLink(
+        "https://fonts.googleapis.com/css?family=Black+And+White+Picture|Black+Han+Sans|Cute+Font|Do+Hyeon|Dokdo|East+Sea+Dokdo|Gaegu|Gamja+Flower|Gothic+A1|Gugi|Hi+Melody|Jua|Kirang+Haerang|Nanum+Brush+Script|Nanum+Gothic|Nanum+Myeongjo|Nanum+Pen+Script|Noto+Sans+KR|Noto+Serif+KR|Poor+Story|Song+Myung|Stylish|Sunflower:300|Yeon+Sung&amp;subset=korean"
+      );
+      appendLink(
+        "https://fonts.googleapis.com/css?family=Source+Sans+Pro|Varela+Round"
+      );
+      appendLink("https://fonts.googleapis.com/earlyaccess/notosanskr.css");
+      appendLink(
+        "https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700"
+      );
+      appendLink(
+        "https://fonts.googleapis.com/css2?family=Inconsolata&display=swap"
+      );
+    }</script><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="alert"></div><div id="root"></div><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TS3NKTR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><script src="/phaser2.min.js"></script><script src="/phaser2-joystick.js"></script><script src="/ace/ace.js"></script><script src="/ace/ext-language_tools.js"></script><script src="/ace/wizschool-theme.js"></script><script src="/ace/wizschool-theme-light.js"></script><script src="/game/colors.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/6.4.0/adapter.min.js"></script><script src="/janus.js"></script><script src="/babylon/babylonConstant.js"></script><script src="/babylon/babylonGame.js"></script><script src="/babylon/babylonScene.js"></script><script src="/babylon/babylonGameObject.js"></script><script src="/babylon/babylonSound.js"></script><script>!function(d){function e(e){for(var t,r,a=e[0],n=e[1],f=e[2],c=0,o=[];c<a.length;c++)r=a[c],i[r]&&o.push(i[r][0]),i[r]=0;for(t in n)Object.prototype.hasOwnProperty.call(n,t)&&(d[t]=n[t]);for(s&&s(e);o.length;)o.shift()();return b.push.apply(b,f||[]),u()}function u(){for(var e,t=0;t<b.length;t++){for(var r=b[t],a=!0,n=1;n<r.length;n++){var f=r[n];0!==i[f]&&(a=!1)}a&&(b.splice(t--,1),e=l(l.s=r[0]))}return e}var r={},o={52:0},i={52:0},b=[];function l(e){if(r[e])return r[e].exports;var t=r[e]={i:e,l:!1,exports:{}};return d[e].call(t.exports,t,t.exports,l),t.l=!0,t.exports}l.e=function(b){var e=[];o[b]?e.push(o[b]):0!==o[b]&&{3:1,7:1,8:1,9:1,10:1,11:1,12:1,13:1,14:1,15:1,16:1,17:1,18:1,19:1,20:1,21:1,22:1,23:1,24:1,25:1,26:1,27:1,28:1,29:1,30:1,31:1,32:1,33:1,34:1,35:1,36:1,37:1,38:1,39:1,40:1,41:1,42:1,43:1,44:1,45:1,46:1,47:1,49:1}[b]&&e.push(o[b]=new Promise(function(e,a){for(var t="static/css/"+({}[b]||b)+"."+{0:"31d6cfe0",1:"31d6cfe0",2:"31d6cfe0",3:"13153dac",4:"31d6cfe0",5:"31d6cfe0",7:"a035e6d2",8:"462bc8e7",9:"7b579b86",10:"baf784fd",11:"f23844af",12:"44af971b",13:"b0bf2a5c",14:"ffc0a574",15:"6b634859",16:"658e9aa2",17:"a0f6b643",18:"6aecd206",19:"49bc538c",20:"c1956a33",21:"97457da0",22:"e09b0cbf",23:"0725cd66",24:"670b0485",25:"b1e1a239",26:"a008efb3",27:"32abecc9",28:"52972aa9",29:"4447bee0",30:"b2fcc170",31:"a910cbd5",32:"201932db",33:"5443aa06",34:"fff34d51",35:"b9e17d78",36:"7cdbeec5",37:"8d805384",38:"27b1a133",39:"d2557ea1",40:"e3070f45",41:"41c53590",42:"8b359ee3",43:"ad2af4aa",44:"823e540c",45:"dd616ea7",46:"3689ad33",47:"6f747f28",49:"b1a2929c",50:"31d6cfe0",51:"31d6cfe0"}[b]+".chunk.css",n=l.p+t,r=document.getElementsByTagName("link"),f=0;f<r.length;f++){var c=(d=r[f]).getAttribute("data-href")||d.getAttribute("href");if("stylesheet"===d.rel&&(c===t||c===n))return e()}var o=document.getElementsByTagName("style");for(f=0;f<o.length;f++){var d;if((c=(d=o[f]).getAttribute("data-href"))===t||c===n)return e()}var u=document.createElement("link");u.rel="stylesheet",u.type="text/css",u.onload=e,u.onerror=function(e){var t=e&&e.target&&e.target.src||n,r=new Error("Loading CSS chunk "+b+" failed.\n("+t+")");r.request=t,a(r)},u.href=n,document.getElementsByTagName("head")[0].appendChild(u)}).then(function(){o[b]=0}));var r=i[b];if(0!==r)if(r)e.push(r[2]);else{var t=new Promise(function(e,t){r=i[b]=[e,t]});e.push(r[2]=t);var a,n=document.getElementsByTagName("head")[0],f=document.createElement("script");f.charset="utf-8",f.timeout=120,l.nc&&f.setAttribute("nonce",l.nc),f.src=l.p+"static/js/"+({}[b]||b)+"."+{0:"0a2b4105",1:"88993baf",2:"53d28022",3:"6056f557",4:"70b08d04",5:"90ae009e",7:"89f1306b",8:"dbfb8339",9:"78a1c1af",10:"bf55fa0e",11:"b2316942",12:"0b38adec",13:"c0999d58",14:"7fc0d795",15:"deef4c72",16:"9f88a0bc",17:"bb70bf28",18:"b070c2f1",19:"371531fc",20:"f26f44fa",21:"e3313e86",22:"07562f29",23:"6e3cb29e",24:"d8ec850d",25:"4bab911e",26:"10c24ef1",27:"cb742108",28:"cafa8ed8",29:"c6d4811b",30:"16be7ac4",31:"3fdc46bb",32:"d66bff16",33:"357b25d5",34:"5fa72607",35:"f2ff069a",36:"e10a99ff",37:"7be7e3df",38:"1a2531bc",39:"34e0f847",40:"2fc6153d",41:"b3e30e21",42:"f2adc745",43:"8b0b4cd9",44:"a8c2aa0a",45:"6541e502",46:"3f532195",47:"8ffd20d1",49:"232b8b44",50:"4611968e",51:"ac8f3273"}[b]+".chunk.js",a=function(e){f.onerror=f.onload=null,clearTimeout(c);var t=i[b];if(0!==t){if(t){var r=e&&("load"===e.type?"missing":e.type),a=e&&e.target&&e.target.src,n=new Error("Loading chunk "+b+" failed.\n("+r+": "+a+")");n.type=r,n.request=a,t[1](n)}i[b]=void 0}};var c=setTimeout(function(){a({type:"timeout",target:f})},12e4);f.onerror=f.onload=a,n.appendChild(f)}return Promise.all(e)},l.m=d,l.c=r,l.d=function(e,t,r){l.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},l.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},l.t=function(t,e){if(1&e&&(t=l(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var r=Object.create(null);if(l.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var a in t)l.d(r,a,function(e){return t[e]}.bind(null,a));return r},l.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return l.d(t,"a",t),t},l.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},l.p="/",l.oe=function(e){throw console.error(e),e};var t=window.webpackJsonp=window.webpackJsonp||[],a=t.push.bind(t);t.push=e,t=t.slice();for(var n=0;n<t.length;n++)e(t[n]);var s=a;u()}([])</script><script src="/static/js/48.f34b4a4d.chunk.js"></script><script src="/static/js/main.1dfbe769.chunk.js"></script></body></html>
