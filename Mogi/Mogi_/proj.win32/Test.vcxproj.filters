@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="win32">
+      <UniqueIdentifier>{84a8ebd7-7cf0-47f6-b75e-d441df67da40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Scene">
+      <UniqueIdentifier>{f0656458-75c9-4d27-b7b4-42aba8aadfc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Birzzle">
+      <UniqueIdentifier>{3905f117-b511-4721-a8e5-8284a4339501}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Dragon">
+      <UniqueIdentifier>{9537e78c-66b1-4e9f-b147-3c88dfbca97d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Zn5">
+      <UniqueIdentifier>{a67ab70a-0960-4c6f-b2f6-eec962bde0fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\MainTP">
+      <UniqueIdentifier>{314a18bf-9454-4bad-81f3-4e54bdc546c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\MainTP\Header">
+      <UniqueIdentifier>{ccb5e634-a50e-4c66-a0dc-04596f5fd9cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Brother">
+      <UniqueIdentifier>{4291bdba-b6c1-4c0a-bfc9-8284ba9218fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\MainTP\Circle">
+      <UniqueIdentifier>{877d5342-d0c5-4759-aaad-5f0f3c937db7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\TEST.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Menuscene.cpp">
+      <Filter>src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
+      <Filter>src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BangScene.cpp">
+      <Filter>src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameStartScene.cpp">
+      <Filter>src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\birzzle.cpp">
+      <Filter>src\Birzzle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Dragon.cpp">
+      <Filter>src\Dragon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ZN5.cpp">
+      <Filter>src\Zn5</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mogi.cpp">
+      <Filter>src\MainTP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MogiMain.cpp">
+      <Filter>src\MainTP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StageC.cpp">
+      <Filter>src\MainTP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Shake.cpp">
+      <Filter>src\MainTP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DaePo.cpp">
+      <Filter>src\Brother</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mogiBoss.cpp">
+      <Filter>src\MainTP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BodyChoose.cpp">
+      <Filter>src\MainTP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Blooding.cpp">
+      <Filter>src\MainTP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Circle.cpp">
+      <Filter>src\MainTP\Circle</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\TEST.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Menuscene.h">
+      <Filter>src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HelloWorldScene.h">
+      <Filter>src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BangScene.h">
+      <Filter>src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameStartScene.h">
+      <Filter>src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\birzzle.h">
+      <Filter>src\Birzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Dragon.h">
+      <Filter>src\Dragon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ZN5.h">
+      <Filter>src\Zn5</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mogi.h">
+      <Filter>src\MainTP\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MogiMain.h">
+      <Filter>src\MainTP\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\StageC.h">
+      <Filter>src\MainTP\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Shake.h">
+      <Filter>src\MainTP\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DaePo.h">
+      <Filter>src\Brother</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mogiBoss.h">
+      <Filter>src\MainTP\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BodyChoose.h">
+      <Filter>src\MainTP\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Blooding.h">
+      <Filter>src\MainTP\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Circle.h">
+      <Filter>src\MainTP\Circle</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game.rc">
+      <Filter>resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
