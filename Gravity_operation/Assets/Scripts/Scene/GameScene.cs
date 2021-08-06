@@ -16,6 +16,7 @@ public class GameScene : MonoBehaviour
     [SerializeField] Transform StageParent = null;
     [SerializeField] GameObject LoadingObj = null;
 
+
     private void Awake()
     {
         CurStageID = StageMgr.Inst.StageIndex;
@@ -35,7 +36,9 @@ public class GameScene : MonoBehaviour
     }
     void Update()
     {
+        GameMgr.Inst.gameInfo.Stage_KeepTime += Time.deltaTime;
         GameMgr.Inst.gameInfo.OnUpdate();
+
 
         if (btlFSM != null)
             btlFSM.OnUpdate();
@@ -48,11 +51,13 @@ public class GameScene : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Time.timeScale += 1;
+            if(Time.timeScale < 5)
+                Time.timeScale += 1;
         }
         if (Input.GetKeyDown(KeyCode.O))
         {
-            Time.timeScale = 1;
+            if (Time.timeScale > 1)
+                Time.timeScale -= 1;
         }
     }
 
@@ -86,6 +91,15 @@ public class GameScene : MonoBehaviour
 
     void OnEnter_ResultState()
     {
+        float best_time = PlayerPrefs.GetFloat(string.Format("StageKeepTime_{0}", CurStageID));
+        int best_cost = PlayerPrefs.GetInt(string.Format("StageCost_{0}", CurStageID));
+
+        if (best_time > GameMgr.Inst.gameInfo.Stage_KeepTime)
+            PlayerPrefs.SetFloat(string.Format("StageKeepTime_{0}", CurStageID), GameMgr.Inst.gameInfo.Stage_KeepTime);
+
+        if(best_cost > GameMgr.Inst.gameInfo.StageUsingMoney)
+            PlayerPrefs.SetInt(string.Format("StageCost_{0}",CurStageID), GameMgr.Inst.gameInfo.StageUsingMoney);
+
         m_hudUI.OpenResult();
     }
 

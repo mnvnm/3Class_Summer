@@ -6,11 +6,10 @@ public class Turret : MonoBehaviour
 {
     [SerializeField] GameObject BulletPrefabs = null;
     [SerializeField] Transform BulletPosition = null;
-    Coroutine shootCo = null;
+    public bool IsShoot = true;
 
     void Start()
     {
-        
     }
 
     void Update()
@@ -23,19 +22,43 @@ public class Turret : MonoBehaviour
     }
     public void Shoot()
     {
-        shootCo = StartCoroutine(ShootCoroutine());
+        IsShoot = true;
+        StartCoroutine(ShootCoroutine());
     }
     public void DontShoot()
     {
-        StopCoroutine(shootCo);
+        IsShoot = false;
     }
 
     IEnumerator ShootCoroutine()
     {
-        while(GameMgr.Inst.m_GameScene.btlFSM.IsGameState())
+        while(GameMgr.Inst.m_GameScene.btlFSM.IsGameState() && IsShoot == true)
         {
             CreateBullet();
             yield return new WaitForSeconds(1.5f);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Gravity_2")
+        {
+            IsShoot = false;
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Gravity_2")
+        {
+            IsShoot = false;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Gravity_2")
+        {
+            IsShoot = true;
         }
     }
 }

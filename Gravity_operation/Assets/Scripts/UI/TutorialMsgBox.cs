@@ -9,6 +9,8 @@ public class TutorialMsgBox : MonoBehaviour
     [SerializeField] Button YesBtn = null;
     [SerializeField] Button NoBtn = null;
 
+    [SerializeField] ExplainDlg Explain_Dlg = null;
+
     private void Start()
     {
         Close();
@@ -17,13 +19,14 @@ public class TutorialMsgBox : MonoBehaviour
     }
     public void Yes_Im_First() // 나 처음이야
     {
-        PlayerPrefs.SetInt("isFirst_", 1);
+        AudioManager.Inst.PlaySFX("ClickSound");
         Look_Video();
         Close();
     }
 
     public void No_Im_Not_First() // 나 처음 아니야
     {
+        AudioManager.Inst.PlaySFX("ClickSound");
         PlayerPrefs.SetInt("isFirst_", 1);
         SceneManager.LoadScene("StageScene");
     }
@@ -40,6 +43,6 @@ public class TutorialMsgBox : MonoBehaviour
 
     void Look_Video()
     {
-
+        Explain_Dlg.Open();
     }
 }

@@ -33,6 +33,9 @@ public class EditDlg : MonoBehaviour
     [SerializeField] GameObject EditObj_Gr3 = null;
     [SerializeField] GameObject EditObj_Gr4 = null;
     //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━//
+    [SerializeField] LayerMask Item_LayerMask;
+    [SerializeField] LayerMask Bg_LayerMask;
+    [SerializeField] LayerMask Btn_LayerMask;
 
     private Vector2 MousePos;// 마우스 포지션 받을 값
     public Transform EditObjContent = null; // 에딧창에서 클릭한 아이템 저장소
@@ -77,7 +80,7 @@ public class EditDlg : MonoBehaviour
             {
                 EditItem.GetComponent<Item>().VisibleCollider();
                 EditItem.transform.position = MousePos;
-                Edit();// 생성 이나 배치 같은거 할때의 함수
+                //Edit();// 생성 이나 배치 같은거 할때의 함수
                 //----------------------------------
                 Scale_Edit(); // 스케일 키우거나 줄이는 함수
             }
@@ -189,12 +192,6 @@ public class EditDlg : MonoBehaviour
         Cheat();
 
         ///
-        Debug.Log(ClickItem_name);
-        if (EditItem == null)
-            Debug.Log("아이템 없엉!");
-        else
-            Debug.Log("아이템 있드아아아아아아엉!");
-
     }
     void Scale_Edit()// _ 스케일 키우거나 줄이기 _
     {
@@ -213,7 +210,7 @@ public class EditDlg : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (ClickItem.transform.localScale.x > 1.0f)
+            if (ClickItem.transform.localScale.x > 0.5f)
                 ClickItem.transform.localScale -= new Vector3(0.25f, 0.25f, 0);
         }
         else if (Input.GetKeyDown(KeyCode.E))
@@ -222,40 +219,50 @@ public class EditDlg : MonoBehaviour
                 ClickItem.transform.localScale += new Vector3(0.25f, 0.25f, 0);
         }
     }
-    void Edit()// 에딧
+    public void EditLeft()// 에딧
     {
-        if (Input.GetMouseButtonDown(0) && EditItem.GetComponentInChildren<EditItemCollider>().IsEditTrue == true)//생성
+        if (GameMgr.Inst.m_GameScene.btlFSM.IsEditState() != true) return; // 에딧 스테이트 상태 때만 작용
+        if (EditItem == null) return;
+
+        if (Input.GetMouseButton(0) && EditItem.GetComponentInChildren<EditItemCollider>().IsEditTrue == true)//생성
         {
-            GameObject item = Instantiate(EditItem, MousePos, new Quaternion(0, 0, 0, 0), ObjContent);
-            item.GetComponent<Item>().InVisibleCollider();
-            switch (ItemIndex) // 생성 오브젝트에 해당한 아이템 인덱스 카운트 증감
+            Vector2 touchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit2d = Physics2D.Raycast(touchPos, Camera.main.transform.forward, 1000, Bg_LayerMask);
+
+            if (hit2d.collider.tag == "Bg")
             {
-                case 1:
-                    GameMgr.Inst.gameInfo.StageCost -= 5;
-                    break;
-                case 2:
-                    GameMgr.Inst.gameInfo.StageCost -= 15;
-                    break;
-                case 3:
-                    GameMgr.Inst.gameInfo.StageCost-= 10;
-                    break;
-                case 4:
-                    Gr4_List.Add(item);
-                    GameMgr.Inst.gameInfo.StageCost -= 20;
-                    break;
+                GameObject item = Instantiate(EditItem, MousePos, new Quaternion(0, 0, 0, 0), ObjContent);
+                item.GetComponent<Item>().InVisibleCollider();
+                switch (ItemIndex) // 생성 오브젝트에 해당한 아이템 인덱스 카운트 증감
+                {
+                    case 1:
+                        GameMgr.Inst.gameInfo.StageCost -= 5;
+                        break;
+                    case 2:
+                        GameMgr.Inst.gameInfo.StageCost -= 15;
+                        break;
+                    case 3:
+                        GameMgr.Inst.gameInfo.StageCost -= 10;
+                        break;
+                    case 4:
+                        Gr4_List.Add(item);
+                        GameMgr.Inst.gameInfo.StageCost -= 20;
+                        break;
+                }
+
+                int rand = Random.Range(0, 1000);
+                item.name = string.Format("{0}{1}_{2}", "Item", rand, ItemIndex); // 아이템 이름을 하나만 있게끔 이름 변환
+                EditItem = null;
+                ItemIndex = 0;
+                EditList.Add(item);
+
+                EditContent_Clear();
             }
-
-
-            int rand = Random.Range(0, 1000);
-            item.name = string.Format("{0}{1}_{2}", "Item", rand, ItemIndex); // 아이템 이름을 하나만 있게끔 이름 변환
-            EditItem = null;
-            ItemIndex = 0;
-            EditList.Add(item);
-
-            EditContent_Clear();
+            else
+                Debug.Log(hit2d.collider.name);
         }
         // _ 취소 _
-        if (Input.GetMouseButtonDown(1)) // 우클릭 누르면 에딧 취소
+        if (Input.GetMouseButton(1)) // 우클릭 누르면 에딧 취소
         {
             GameObject item = Instantiate(EditItem, TrashContent.position, new Quaternion(0, 0, 0, 0), TrashContent);
             EditItem = null;
@@ -408,55 +415,48 @@ public class EditDlg : MonoBehaviour
 
     void Gr1_Item()
     {
-        if (EditItem == null)
+        if (GameMgr.Inst.gameInfo.StageCost < 5) return;
+        if (EditItem != null)
         {
-            GameObject item = Instantiate(EditObj_Gr1, EditObjContent);
-            EditItem = item;
-            ItemIndex = 1;
+            Destroy(EditItem);
         }
-        else
-        {
-            EditContent_Clear();
-        }
+        GameObject item = Instantiate(EditObj_Gr1, EditObjContent);
+        EditItem = item;
+        ItemIndex = 1;
     }
     void Gr2_Item()
     {
-        if (EditItem == null)
+        if (GameMgr.Inst.gameInfo.StageCost < 15) return;
+        if (EditItem != null)
         {
-            GameObject item = Instantiate(EditObj_Gr2, EditObjContent);
-            EditItem = item;
-            ItemIndex = 2;
+            Destroy(EditItem);
         }
-        else
-        {
-            EditContent_Clear();
-        }
+        GameObject item = Instantiate(EditObj_Gr2, EditObjContent);
+        EditItem = item;
+        ItemIndex = 2;
     }
     void Gr3_Item()
     {
-        if (EditItem == null)
+        if (GameMgr.Inst.gameInfo.StageCost < 10) return;
+        if (EditItem != null)
         {
-            GameObject item = Instantiate(EditObj_Gr3, EditObjContent);
-            EditItem = item;
-            ItemIndex = 3;
+            Destroy(EditItem);
         }
-        else
-        {
-            EditContent_Clear();
-        }
+        GameObject item = Instantiate(EditObj_Gr3, EditObjContent);
+        EditItem = item;
+        ItemIndex = 3;
     }
     void Gr4_Item()
     {
-        if (EditItem == null)
+        if (GameMgr.Inst.gameInfo.StageCost < 20) return;
+
+        if (EditItem != null)
         {
-            GameObject item = Instantiate(EditObj_Gr4, EditObjContent);
-            EditItem = item;
-            ItemIndex = 4;
+            Destroy(EditItem);
         }
-        else
-        {
-            EditContent_Clear();
-        }
+        GameObject item = Instantiate(EditObj_Gr4, EditObjContent);
+        EditItem = item;
+        ItemIndex = 4;
     }
 
     public int GetItemIndex() // 현재 가지고 있는 인덱스 아이템 / 0 = 없음
@@ -530,20 +530,13 @@ public class EditDlg : MonoBehaviour
     void Click_EditedObj() // 설치 되어 있는 오브젝트
     {
         Vector2 touchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(touchPos, Camera.main.transform.forward);
+        RaycastHit2D hit = Physics2D.Raycast(touchPos, Camera.main.transform.forward, 1000, Item_LayerMask);
 
         if (hit.collider != null)
         {
             ClickItem = null;
-            if (hit.collider.tag == "Ground")
-                return;
-
-            else if (hit.collider.tag == "Gravity_1" || hit.collider.tag == "Gravity_2" ||
-                hit.collider.tag == "Gravity_3" || hit.collider.tag == "Gravity_4")
-            {
-                ClickItem_name = hit.collider.gameObject.name;
-                ClickItem = hit.collider.gameObject;
-            }
+            ClickItem_name = hit.collider.gameObject.name;
+            ClickItem = hit.collider.gameObject;
         }
         else
             ClickItem_name = "";

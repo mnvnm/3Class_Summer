@@ -8,6 +8,7 @@ public class HudUI : MonoBehaviour
     public EditDlg editDlg = null; // 맵 에딧, 아이템 생성들을 관리하는 스크립트
     public ResultUI resultUI = null; // 결과창 보여주는 스크립트
     public Esc_Dlg escDlg = null; // Esc 눌렀을때 나오는 Dlg
+    public ItemInfoMsgDlg MsgBox = null;// 아이템 정보 나오는 메세지 박스
     public Text Gr_scaleTxt = null; // 중력 스케일이 얼만큼인지
     public Text Gr_dirTxt = null; // 중력 방향이 어딘지
     public Text ItemInfoTxt = null; //아이템 정보 설명란
@@ -23,7 +24,7 @@ public class HudUI : MonoBehaviour
     {
         Gr_scaleTxt.text = string.Format("중력 스케일 : {0}", Physics2D.gravity); // 중력 스케일이 얼만큼인지 보여주는 텍스트
         Gr_dirTxt.text = string.Format("중력방향 : {0}", GameMgr.Inst.m_GameScene.m_gameUI.ball.GravityDir); // 중력 방향이 어디인지 보여주는 텍스트
-        switch (editDlg.GetItemIndex())
+        switch (MsgBox.GetItemIndex())
         {
             case 0:
                 ItemInfoTxt.text = "";
@@ -43,22 +44,25 @@ public class HudUI : MonoBehaviour
         }
 
 
-        if(Input.GetKeyDown(KeyCode.F1))
+        if(Input.GetKeyDown(KeyCode.F2))
         {
             TextInVisible();
-            editDlg.gameObject.SetActive(false);
         }
-        if (Input.GetKeyDown(KeyCode.F2))
+        if (Input.GetKeyDown(KeyCode.F1))
         {
-            Gr_scaleTxt.gameObject.SetActive(true);
-            Gr_dirTxt.gameObject.SetActive(true);
-            editDlg.gameObject.SetActive(true);
+            TextVisible();
         }
     }
     void TextInVisible()
     {
         Gr_scaleTxt.gameObject.SetActive(false);
         Gr_dirTxt.gameObject.SetActive(false);
+    }
+
+    void TextVisible()
+    {
+        Gr_scaleTxt.gameObject.SetActive(true);
+        Gr_dirTxt.gameObject.SetActive(true);
     }
     public void OpenResult() //결과창 열기
     {

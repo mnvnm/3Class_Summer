@@ -12,6 +12,7 @@ public class StageScene : MonoBehaviour
     [SerializeField] Dictionary<int, bool> dictStage = new Dictionary<int,bool>();
     [SerializeField] List<GameObject> SuccessImg_List = new List<GameObject>();
     [SerializeField] List<Button> StageItem_List = new List<Button>();
+    [SerializeField] BestRecordDLg bestRecorddlg = null;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -38,6 +39,9 @@ public class StageScene : MonoBehaviour
             StageMgr.Inst.StageIndex = 0;
             PlayOnGameScene();
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Back();
     }
 
     public void Initialize()
@@ -62,6 +66,7 @@ public class StageScene : MonoBehaviour
                 dictStage[i] = false;
             }
         }
+        bestRecorddlg.Initialize();
     }
 
     void PlayOnGameScene()
@@ -78,6 +83,7 @@ public class StageScene : MonoBehaviour
 
     void OpenLoading()
     {
+        AudioManager.Inst.PlaySFX("ClickSound");
         Loading.SetActive(true);
     }
 }

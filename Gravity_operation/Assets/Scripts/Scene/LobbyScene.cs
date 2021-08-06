@@ -11,11 +11,11 @@ public class LobbyScene : MonoBehaviour
     [SerializeField] Button EditorBtn = null;
     [SerializeField] GameObject Loading = null;
     [SerializeField] TutorialMsgBox MsgBox = null;
-    int IsFirst = 0;
     // Start is called before the first frame update
     void Start()
     {
-        IsFirst = PlayerPrefs.GetInt("isFirst_");
+        GameMgr.Inst.SetLobbyScene(this);
+        GameMgr.Inst.IsFirst = PlayerPrefs.GetInt("isFirst_");
         StartBtn.onClick.AddListener(PlayOnGameScene);
         EditorBtn.onClick.AddListener(PlayOnEditorScene);
         ExitBtn.onClick.AddListener(Exit);
@@ -28,7 +28,8 @@ public class LobbyScene : MonoBehaviour
 
     void PlayOnGameScene()
     {
-        if(IsFirst == 0)
+        AudioManager.Inst.PlaySFX("ClickSound");
+        if (GameMgr.Inst.IsFirst == 0)
             MsgBox.Open();
         else
         {
@@ -41,15 +42,17 @@ public class LobbyScene : MonoBehaviour
     void PlayOnEditorScene()
     {
         OpenLoading();
+        AudioManager.Inst.PlaySFX("ClickSound");
         SceneManager.LoadScene("EditorScene");
     }
 
     void Exit()
     {
+        AudioManager.Inst.PlaySFX("ClickSound");
         Application.Quit();
     }
 
-    void OpenLoading()
+    public void OpenLoading()
     {
         Loading.SetActive(true);
     }

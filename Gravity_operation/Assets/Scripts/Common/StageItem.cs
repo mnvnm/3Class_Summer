@@ -9,5 +9,6 @@ public class StageItem : MonoBehaviour
     public void OnClick_This(int index)
     {
         StageMgr.Inst.StageIndex = index;
+        AudioManager.Inst.PlaySFX("ClickSound");
     }
 }

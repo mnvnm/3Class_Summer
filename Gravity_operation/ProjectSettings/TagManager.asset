@@ -17,6 +17,8 @@ TagManager:
   - Trans_Left
   - Trans_Right
   - Turret
+  - Bg
+  - Gr_Item
   layers:
   - Default
   - TransparentFX
@@ -24,10 +26,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - MapObj
+  - Item
+  - Bg
+  - Button
   - 
   - 
   - 
@@ -53,4 +55,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: MapObj
+    uniqueID: 1743781273
+    locked: 0
+  - name: Item
+    uniqueID: 3973484325
     locked: 0

@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/LobbyScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/EditorScene.unity
-    guid: a2983f2762095fe40a214d88f2e41c89
-  - enabled: 1
     path: Assets/Scenes/StageScene.unity
     guid: 0479db470a6eb594094f6d108be542c5
+  - enabled: 1
+    path: Assets/Scenes/EditorScene.unity
+    guid: a2983f2762095fe40a214d88f2e41c89
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 5448c84e80309814ca3e974aa4b3ec64

@@ -34,15 +34,18 @@ public class Esc_Dlg : MonoBehaviour
 
     void Resume()
     {
+        AudioManager.Inst.PlaySFX("ClickSound");
         GameMgr.Inst.m_GameScene.Pause();
     }
     void Option()
     {
+        AudioManager.Inst.PlaySFX("ClickSound");
 
     }
 
     void Exit()
     {
+        AudioManager.Inst.PlaySFX("ClickSound");
         GameMgr.Inst.m_GameScene.OpenLoading();
         SceneManager.LoadScene("LobbyScene");
     }

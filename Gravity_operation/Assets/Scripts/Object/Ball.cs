@@ -50,6 +50,8 @@ public class Ball : MonoBehaviour
         Rigd.velocity = new Vector2(0, 0);// 현재 공의 작용하는 힘의 값 초기화
         Rigd.gravityScale = 0;// 공이 받는 중력 스케일 0 으로 초기화
         this.transform.position = StartPos.position;
+        this.transform.localRotation = new Quaternion(0, 0, 0, 0);
+        transform.rotation = new Quaternion(0, 0, 0, 0);
         if (GameMgr.Inst.m_GameScene.btlFSM.IsGameState()) // 지금 플레이 버튼을 눌렀냐
         {
             if (trailTemp != null)// 꼬리가 이미 있다면 삭제
@@ -105,11 +107,11 @@ public class Ball : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Ground" && GameMgr.Inst.m_GameScene.btlFSM.IsGameState())//땅에 닿았을때 힘을 실어준다.
         {
-            if(Rigd.velocity.x >= 0 && Rigd.velocity.x <= 0.5f)
+            if(Rigd.velocity.x >= 0 && Rigd.velocity.x <= 1f)
             {
                 Rigd.velocity = new Vector2(4, 0);
             }
-            else if(Rigd.velocity.x < 0 && Rigd.velocity.x >= -0.5f)
+            else if(Rigd.velocity.x < 0 && Rigd.velocity.x >= -1f)
             {
                 Rigd.velocity = new Vector2(-4, 0);
             }
